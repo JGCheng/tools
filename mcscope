@@ -1,7 +1,13 @@
 #!/bin/bash
 
 if [ $# == 0 ]
+then
     dir=`pwd`
+else
+    dir=$1
 fi
-
 echo "Dir:$dir"
+
+find $dir -name "*.c" -o -name "*.cc" -o -name "*.C" -o -name "*.cpp" -o -name "*.cxx" -o -name "*.h" -o -name "*.hpp" -o -name "*.hxx" >$dir/csope.file
+
+
