@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ $# == 0 ]
+    dir=`pwd`
+fi
+
+echo "Dir:$dir"
