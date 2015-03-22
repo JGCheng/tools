@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -x
 if [ $# == 0 ]
 then
     dir=`pwd`
@@ -8,6 +8,10 @@ else
 fi
 echo "Dir:$dir"
 
-find $dir -name "*.c" -o -name "*.cc" -o -name "*.C" -o -name "*.cpp" -o -name "*.cxx" -o -name "*.h" -o -name "*.hpp" -o -name "*.hxx" >$dir/csope.file
+find $dir -name "*.c" -o -name "*.cc" -o -name "*.C" -o -name "*.cpp" -o -name "*.cxx" -o -name "*.h" -o -name "*.hpp" -o -name "*.hxx" >$dir/cscope.files
+
+cscope -bkq -i $dir/cscope.files -f $dir/cscope.out
+
+ctags -L $dir/cscope.files
 
 
